@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+@model Book_Store1.Models.Domain.Login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+
+<HTML>
+<HEAD>
+    <link rel="stylesheet" type="text/css" href="/css/Site.css">
+</HEAD>
+<BODY>
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    { 
+        <div class="container" style="align-content:center!important;">
+            <h2>Login</h2>
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="UserName" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="Password" required>
+
+            <button type="submit">Login</button>
+           @*  <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label> *@
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+    }
+
+</BODY>
+</HTML>
